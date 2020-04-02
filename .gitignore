@@ -1,0 +1,14 @@
+# node & npm
+node_modules
+*.log
+
+# test
+test-results
+__diff_output__
+.jest-cache
+
+# OS
+.DS_Store
+
+# IDE
+.idea
