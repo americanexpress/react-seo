@@ -12,3 +12,6 @@ __diff_output__
 
 # IDE
 .idea
+
+# build
+build/
