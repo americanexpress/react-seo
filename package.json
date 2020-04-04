@@ -1,7 +1,7 @@
 {
   "name": "@americanexpress/react-seo",
   "version": "0.0.0",
-  "description": "SEO tag manager for React",
+  "description": "Simple SEO tag manager for React",
   "main": "build/index.js",
   "scripts": {
     "lint": "eslint ./ --ignore-path .gitignore --ext .js",
