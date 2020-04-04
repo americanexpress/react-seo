@@ -5,12 +5,12 @@
 [![npm version](https://badge.fury.io/js/%40americanexpress%2Freact-seo.svg)](https://badge.fury.io/js/%40americanexpress%2Freact-seo)
 [![Build Status](https://travis-ci.org/americanexpress/react-seo.svg?branch=master)](https://travis-ci.org/americanexpress/react-seo)
 
-> SEO tag manager for React
+> Simple SEO tag manager for React
 
 ## 👩‍💻 Hiring 👨‍💻
 
 Want to get paid for your contributions to `react-seo`?
-> SEO tag manager for React
+> Simple SEO tag manager for React
 
 ## 📖 Table of Contents
 
