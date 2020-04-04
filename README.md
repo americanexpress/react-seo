@@ -10,7 +10,7 @@
 ## 👩‍💻 Hiring 👨‍💻
 
 Want to get paid for your contributions to `react-seo`?
-> Simple SEO tag manager for React
+> Send your resume to oneamex.careers@aexp.com
 
 ## 📖 Table of Contents
 
