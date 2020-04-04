@@ -38,6 +38,7 @@ const MyModule = () => (
       siteUrl="https://example.com"
       title="Lorem Ipsum"
       image="https://example.com/foo.png"
+      meta=[{ charset: 'utf-8' }]
     />
   </div>
 );
