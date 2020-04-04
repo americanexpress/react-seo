@@ -1,0 +1,14 @@
+__tests__
+.jest-cache
+src/*
+test-results
+.babelrc
+.editorconfig
+.eslintrc.json
+.travis.yml
+*.md
+CODEOWNERS
+commitlint.config.js
+react-seo.png
+test-setup.js
+*.tgz
