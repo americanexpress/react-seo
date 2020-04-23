@@ -28,7 +28,6 @@ const SEO = ({
   pathname,
   siteUrl,
   title,
-  titleTemplate,
 }) => {
   const image = metaImage && metaImage.src ? `${siteUrl}${metaImage.src}` : null;
 
@@ -105,10 +104,8 @@ const SEO = ({
   return (
     <Helmet
       htmlAttributes={{ lang }}
-      title={title}
       link={link}
       meta={metaTags}
-      titleTemplate={titleTemplate}
     >
       {children}
     </Helmet>
@@ -129,7 +126,6 @@ SEO.propTypes = {
   pathname: PropTypes.string,
   siteUrl: PropTypes.string,
   title: PropTypes.string,
-  titleTemplate: PropTypes.string,
 };
 
 SEO.defaultProps = {
@@ -144,7 +140,6 @@ SEO.defaultProps = {
   pathname: '',
   siteUrl: '',
   title: '',
-  titleTemplate: '',
 };
 
 export default SEO;

@@ -48,8 +48,6 @@ exports[`SEO should render articles correctly 1`] = `
       },
     ]
   }
-  title="Lorem Ipsum"
-  titleTemplate=""
 />
 `;
 
@@ -108,8 +106,6 @@ exports[`SEO should render children correctly 1`] = `
       },
     ]
   }
-  title="Lorem Ipsum"
-  titleTemplate=""
 >
   <script
     src="https://example.com/foo.js"
@@ -177,8 +173,6 @@ exports[`SEO should render images correctly 1`] = `
       },
     ]
   }
-  title="Lorem Ipsum"
-  titleTemplate=""
 />
 `;
 
@@ -237,8 +231,6 @@ exports[`SEO should render images pathnames correctly 1`] = `
       },
     ]
   }
-  title="Lorem Ipsum"
-  titleTemplate=""
 />
 `;
 
@@ -290,7 +282,5 @@ exports[`SEO should render the snapshot correctly 1`] = `
       },
     ]
   }
-  title="Lorem Ipsum"
-  titleTemplate=""
 />
 `;
