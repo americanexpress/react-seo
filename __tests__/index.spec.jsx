@@ -27,6 +27,7 @@ describe('SEO', () => {
         keywords={['foo', 'bar']}
         siteUrl="https://example.com"
         title="Lorem Ipsum"
+        canonical="https://example.com/foo/bar"
       />
     );
     expect(component).toMatchSnapshot();
