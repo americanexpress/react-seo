@@ -241,7 +241,14 @@ exports[`SEO should render the snapshot correctly 1`] = `
       "lang": "en-US",
     }
   }
-  link={Array []}
+  link={
+    Array [
+      Object {
+        "href": "https://example.com/foo/bar",
+        "rel": "canonical",
+      },
+    ]
+  }
   meta={
     Array [
       Object {

@@ -28,10 +28,11 @@ const SEO = ({
   pathname,
   siteUrl,
   title,
+  canonical: canonicalTag,
 }) => {
   const image = metaImage && metaImage.src ? `${siteUrl}${metaImage.src}` : null;
 
-  const canonical = pathname ? `${siteUrl}${pathname}` : null;
+  const canonical = canonicalTag || (pathname ? `${siteUrl}${pathname}` : null);
 
   const link = canonical ? [{ rel: 'canonical', href: canonical }] : [];
 
@@ -126,6 +127,7 @@ SEO.propTypes = {
   pathname: PropTypes.string,
   siteUrl: PropTypes.string,
   title: PropTypes.string,
+  canonical: PropTypes.string,
 };
 
 SEO.defaultProps = {
@@ -140,6 +142,7 @@ SEO.defaultProps = {
   pathname: '',
   siteUrl: '',
   title: '',
+  canonical: '',
 };
 
 export default SEO;

@@ -65,6 +65,7 @@ SEO.propTypes = {
   pathname: PropTypes.string,
   siteUrl: PropTypes.string,
   title: PropTypes.string,
+  canonical: PropTypes.string,
 };
 
 SEO.defaultProps = {
@@ -78,6 +79,7 @@ SEO.defaultProps = {
   pathname: '',
   siteUrl: '',
   title: '',
+  canonical: '',
 };
 ```
 
