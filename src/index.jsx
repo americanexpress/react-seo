@@ -15,6 +15,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { HELMET_PROPS } from 'react-helmet/lib/HelmetConstants';
 
 const SEO = ({
   article,
@@ -29,6 +30,7 @@ const SEO = ({
   siteUrl,
   title,
   canonical: canonicalTag,
+  ...props
 }) => {
   const image = metaImage && metaImage.src ? `${siteUrl}${metaImage.src}` : null;
 
@@ -102,11 +104,20 @@ const SEO = ({
     ];
   }
 
+  const helmetProps = Object.values(HELMET_PROPS)
+    .filter((propName) => props[propName] !== undefined)
+    .reduce((result, propName) => ({
+      ...result,
+      [propName]: props[propName],
+    }), {});
+
   return (
     <Helmet
       htmlAttributes={{ lang }}
       link={link}
       meta={metaTags}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...helmetProps}
     >
       {children}
     </Helmet>

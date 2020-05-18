@@ -1,5 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SEO should render Helmet props correctly 1`] = `
+<Helmet
+  defaultTitle="Curabitur pretium tincidunt lacus."
+  defer={false}
+  encodeSpecialCharacters={true}
+  htmlAttributes={
+    Object {
+      "lang": "en-US",
+    }
+  }
+  link={
+    Array [
+      Object {
+        "href": "https://example.com/foo/bar",
+        "rel": "canonical",
+      },
+    ]
+  }
+  meta={
+    Array [
+      Object {
+        "content": "Lorem ipsum sat delor.",
+        "name": "description",
+      },
+      Object {
+        "content": "foo,bar",
+        "name": "keywords",
+      },
+      Object {
+        "content": "Lorem Ipsum",
+        "property": "og:title",
+      },
+      Object {
+        "content": "Lorem ipsum sat delor.",
+        "property": "og:description",
+      },
+      Object {
+        "content": "website",
+        "property": "og:type",
+      },
+      Object {
+        "content": "John Doe",
+        "name": "twitter:creator",
+      },
+      Object {
+        "content": "Lorem Ipsum",
+        "name": "twitter:title",
+      },
+      Object {
+        "content": "Lorem ipsum sat delor.",
+        "name": "twitter:description",
+      },
+      Object {
+        "content": "summary",
+        "name": "twitter:card",
+      },
+    ]
+  }
+  onChangeClientState={[MockFunction]}
+  titleTemplate={null}
+/>
+`;
+
 exports[`SEO should render articles correctly 1`] = `
 <Helmet
   htmlAttributes={
