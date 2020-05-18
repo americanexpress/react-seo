@@ -92,4 +92,24 @@ describe('SEO', () => {
     );
     expect(component).toMatchSnapshot();
   });
+
+  it('should render Helmet props correctly', () => {
+    const component = shallow(
+      <SEO
+        author="John Doe"
+        description="Lorem ipsum sat delor."
+        keywords={['foo', 'bar']}
+        siteUrl="https://example.com"
+        title="Lorem Ipsum"
+        canonical="https://example.com/foo/bar"
+        defaultTitle="Curabitur pretium tincidunt lacus."
+        defer={false}
+        encodeSpecialCharacters={true}
+        onChangeClientState={jest.fn()}
+        titleTemplate={null}
+        zipTies={false}
+      />
+    );
+    expect(component).toMatchSnapshot();
+  });
 });
