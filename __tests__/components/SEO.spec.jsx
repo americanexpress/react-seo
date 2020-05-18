@@ -14,81 +14,104 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import SEO from '../src';
+import SEO from '../../src';
 
 jest.mock('react-helmet', () => ({ Helmet: 'Helmet' }));
 
 describe('SEO', () => {
-  it('should render the snapshot correctly', () => {
+  it('should render correctly with the minimal tags', () => {
     const component = shallow(
       <SEO
-        author="John Doe"
-        description="Lorem ipsum sat delor."
-        keywords={['foo', 'bar']}
-        siteUrl="https://example.com"
         title="Lorem Ipsum"
-        canonical="https://example.com/foo/bar"
+        siteUrl="https://example.com"
       />
     );
     expect(component).toMatchSnapshot();
   });
 
-  it('should render articles correctly', () => {
+  it('should provide the canonical URL', () => {
     const component = shallow(
       <SEO
-        author="John Doe"
         description="Lorem ipsum sat delor."
         keywords={['foo', 'bar']}
         siteUrl="https://example.com"
         title="Lorem Ipsum"
-        article={true}
+        canonical="https://example.com/index.html"
       />
     );
-    expect(component).toMatchSnapshot();
+
+    const helmet = component.find('Helmet');
+    const { link } = helmet.props();
+
+    expect(link).toEqual([{
+      rel: 'canonical', href: 'https://example.com/index.html',
+    }]);
   });
 
-  it('should render images correctly', () => {
+  it('should render image tags correctly', () => {
     const component = shallow(
       <SEO
-        author="John Doe"
         description="Lorem ipsum sat delor."
         keywords={['foo', 'bar']}
         siteUrl="https://example.com"
         title="Lorem Ipsum"
         image={{
-          src: '/foo.png',
+          src: 'http://example.com/ogp.jpg',
+          type: 'image/jpeg',
+          width: 500,
+          height: 300,
+          alt: 'A shiny red apple with a bite taken out',
         }}
       />
     );
     expect(component).toMatchSnapshot();
   });
 
-  it('should render images pathnames correctly', () => {
+  it('should render video tags correctly', () => {
     const component = shallow(
       <SEO
-        author="John Doe"
         description="Lorem ipsum sat delor."
         keywords={['foo', 'bar']}
         siteUrl="https://example.com"
         title="Lorem Ipsum"
-        pathname="/foo"
+        video={{
+          src: 'http://example.com/movie.swf',
+          type: 'application/x-shockwave-flash',
+          width: 500,
+          height: 300,
+          alt: 'A shiny red apple with a bite taken out',
+        }}
       />
     );
     expect(component).toMatchSnapshot();
   });
 
-  it('should render children correctly', () => {
+  it('should render Open Graph tags correctly', () => {
     const component = shallow(
       <SEO
-        author="John Doe"
         description="Lorem ipsum sat delor."
         keywords={['foo', 'bar']}
         siteUrl="https://example.com"
         title="Lorem Ipsum"
-        pathname="/foo"
-      >
-        <script src="https://example.com/foo.js" />
-      </SEO>
+        openGraph={{
+          title: 'Open Graph Title',
+        }}
+      />
+    );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render Twitter Card tags correctly', () => {
+    const component = shallow(
+      <SEO
+        description="Lorem ipsum sat delor."
+        keywords={['foo', 'bar']}
+        siteUrl="https://example.com"
+        title="Lorem Ipsum"
+        twitterCard={{
+          title: 'Twitter Card Title',
+        }}
+      />
     );
     expect(component).toMatchSnapshot();
   });
