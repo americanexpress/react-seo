@@ -8,7 +8,7 @@
     "test": "jest --ci=false",
     "test:lockfile": "lockfile-lint -p package-lock.json -t npm -a npm -o https: -c -i",
     "test:git-history": "commitlint --from origin/master --to HEAD",
-    "build": "npx babel src --out-dir build",
+    "build": "babel src --out-dir build",
     "clean": "rimraf build",
     "prepublish": "npm run build",
     "prebuild": "npm run clean",
@@ -56,7 +56,8 @@
     "husky": "^4.2.3",
     "jest": "^24.9.0",
     "lockfile-lint": "^4.1.0",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
