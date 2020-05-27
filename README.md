@@ -25,6 +25,11 @@ Want to get paid for your contributions to `react-seo`?
 ```bash
 npm install @americanexpress/react-seo
 ```
+
+<br />
+
+Let's start with a minimal example of basic usage:
+
 ```javascript
 import React from 'react';
 import SEO from '@americanexpress/react-seo';
@@ -32,19 +37,75 @@ import SEO from '@americanexpress/react-seo';
 const MyModule = () => (
   <div>
     <SEO
-      author="John Doe"
+      title="Lorem Ipsum"
       description="Lorem ipsum sat delor."
       keywords={['foo', 'bar']}
-      siteUrl="https://example.com"
-      title="Lorem Ipsum"
-      image="https://example.com/foo.png"
-      meta=[{ charset: 'utf-8' }]
+      siteUrl="http://example.com"
+      image={{
+        src: 'http://example.com/foo.jpg'
+      }}
     />
   </div>
 );
 
 export default MyModule;
 ```
+
+This will result in the following tags being added to the `head` element:
+
+```html
+<head>
+  <title>Lorem Ipsum</title>
+  <link rel="canonical" href="http://example.com">
+  <meta property="og:url" content="http://example.com">
+  <meta property="og:title" content="Lorem Ipsum">
+  <meta property="og:description" content="Lorem ispum sat delor.">
+  <meta property="og:image" content="http://example.com/foo.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Lorem Ipsum">
+  <meta name="twitter:description" content="Lorem ispum sat delor.">
+  <meta name="twitter:image" content="http://example.com/foo.jpg">
+  <meta name="description" content="Lorem ispum sat delor.">
+  <meta name="keywords" content="foo, bar">
+</head>
+```
+
+Notice in the example above that the Open Graph and Twitter Card metadata is constructed from the `title`, `description`, and `image` props.  To override these values or add additional tags not provided by default, you may use the `openGraph` and `twitterCard` props.
+
+```javascript
+import React from 'react';
+import SEO from '@americanexpress/react-seo';
+
+const MyModule = () => (
+  <div>
+    <SEO
+      title="Lorem Ipsum"
+      description="Lorem ipsum sat delor."
+      keywords={['foo', 'bar']}
+      siteUrl="http://example.com"
+      openGraph={{
+        title: 'Facebook Lorem Ipsum',
+        description: 'Facebook Lorem ipsum sat delor.',
+        image: {
+          src: 'http://example.com/facebook-foo.jpg',
+          alt: 'Lorem ipsum',
+        }
+      }}
+      twitterCard={{
+        title: 'Twitter Lorem Ipsum',
+        description: 'Twitter Lorem ipsum sat delor.',
+        image: {
+          src: 'http://example.com/twitter-foo.jpg',
+          alt: 'Lorem ipsum',
+        }
+      }}
+    />
+  </div>
+);
+
+export default MyModule;
+```
+
 <br />
 
 ## 🎛️ API
@@ -53,19 +114,96 @@ The interface for `react-seo` is denoted below:
 
 ```javascript
 SEO.propTypes = {
-  article: PropTypes.bool,
-  author: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.shape({
-    src: PropTypes.string,
+  title: string,
+  description: string,
+  canonical: string,
+  image: shape({
+    src: string,
+    secureUrl: string,
+    type: string,
+    width: number,
+    height: number,
+    alt: string,
   }),
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  locale: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  pathname: PropTypes.string,
-  siteUrl: PropTypes.string,
-  title: PropTypes.string,
-  canonical: PropTypes.string,
+  video: shape({
+    src: string,
+    secureUrl: string,
+    type: string,
+    width: number,
+    height: number,
+    alt: string,
+  }),
+  openGraph: shape({
+    type: string,
+    url: string,
+    title: string,
+    description: string,
+    determiner: string,
+    locale: string,
+    localeAlternate: string,
+    siteName: string,
+    image: shape({
+      src: string,
+      secureUrl: string,
+      type: string,
+      width: number,
+      height: number,
+      alt: string,
+    }),
+    video: shape({
+      src: string,
+      secureUrl: string,
+      type: string,
+      width: number,
+      height: number,
+      alt: string,
+    }),
+    audio: shape({
+      src: string,
+      secureUrl: string,
+      type: string,
+    }),
+  }),
+  twitterCard: shape({
+    card: string,
+    title: string,
+    description: string,
+    image: shape({
+      src: string,
+      alt: string,
+    }),
+    site: string,
+    siteId: string,
+    creator: string,
+    creatorId: string,
+    app: shape({
+      country: string,
+      iphone: shape({
+        id: string,
+        url: string,
+        name: string,
+      }),
+      ipad: shape({
+        id: string,
+        url: string,
+        name: string,
+      }),
+      googlePlay: shape({
+        id: string,
+        url: string,
+        name: string,
+      }),
+    }),
+    player: shape({
+      src: string,
+      width: number,
+      height: number,
+    }),
+  }),
+  keywords: arrayOf(string),
+  locale: string,
+  meta: arrayOf(object),
+  siteUrl: string,
 };
 
 SEO.defaultProps = {
