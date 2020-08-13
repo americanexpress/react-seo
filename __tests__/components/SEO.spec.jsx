@@ -48,6 +48,28 @@ describe('SEO', () => {
     }]);
   });
 
+  it('should provide the robots', () => {
+    const component = shallow(
+      <SEO
+        description="Lorem ipsum sat delor."
+        keywords={['foo', 'bar']}
+        robots={['index', 'follow']}
+        siteUrl="https://example.com"
+        title="Lorem Ipsum"
+        canonical="https://example.com/index.html"
+      />
+    );
+
+    const helmet = component.find('Helmet');
+    const { meta } = helmet.props();
+
+    const robots = meta.find((tag) => tag.name === 'robots');
+
+    expect(robots).toMatchObject({
+      name: 'robots', content: 'index,follow',
+    });
+  });
+
   it('should render image tags correctly', () => {
     const component = shallow(
       <SEO

@@ -81,6 +81,7 @@ const MyModule = () => (
     <SEO
       title="Lorem Ipsum"
       description="Lorem ipsum sat delor."
+      robots={['index', 'follow']}
       keywords={['foo', 'bar']}
       siteUrl="http://example.com"
       openGraph={{
@@ -201,6 +202,7 @@ SEO.propTypes = {
     }),
   }),
   keywords: arrayOf(string),
+  robots: arrayOf(string),
   locale: string,
   meta: arrayOf(object),
   siteUrl: string,
@@ -212,6 +214,7 @@ SEO.defaultProps = {
   description: '',
   image: null,
   keywords: [],
+  robots: [],
   locale: 'en-US',
   meta: [],
   pathname: '',
