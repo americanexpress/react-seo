@@ -1,6 +1,6 @@
 {
   "name": "@americanexpress/react-seo",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Simple SEO tag manager for React",
   "main": "build/index.js",
   "scripts": {

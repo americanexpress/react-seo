@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/americanexpress/react-seo/compare/v2.1.0...v2.2.0) (2020-08-13)
+
+
+### Features
+
+* **seo:** add robots support ([d4de1e6](https://github.com/americanexpress/react-seo/commit/d4de1e60c483f3c56bf2d8df5e01f2e85e531f8b))
+
 # [2.1.0](https://github.com/americanexpress/react-seo/compare/v2.0.0...v2.1.0) (2020-06-09)
 
 
