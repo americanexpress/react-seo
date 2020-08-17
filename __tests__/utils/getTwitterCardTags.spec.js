@@ -14,6 +14,10 @@
 
 import getTwitterCardTags from '../../src/utils/getTwitterCardTags';
 
+global.console = {
+  warn: jest.fn(),
+};
+
 describe('getTwitterCardTags', () => {
   describe('summary card', () => {
     it('should provide the tags for a summary card', () => {
@@ -37,6 +41,56 @@ describe('getTwitterCardTags', () => {
         { name: 'twitter:image', content: 'http://example.com/ogp.jpg' },
         { name: 'twitter:image:alt', content: 'A shiny red apple with a bite taken out' },
       ]);
+    });
+  });
+
+  describe('summary with large image card', () => {
+    it('should provide the tags for a summary with large image card', () => {
+      const config = {
+        card: 'summary_large_image',
+        site: '@Example',
+        title: 'Some title',
+        description: 'Some description',
+        image: {
+          src: 'http://example.com/ogp.jpg',
+          alt: 'A shiny red apple with a bite taken out',
+        },
+        irrelevantProperty: 'foo',
+      };
+
+      expect(getTwitterCardTags(config)).toEqual([
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@Example' },
+        { name: 'twitter:title', content: 'Some title' },
+        { name: 'twitter:description', content: 'Some description' },
+        { name: 'twitter:image', content: 'http://example.com/ogp.jpg' },
+        { name: 'twitter:image:alt', content: 'A shiny red apple with a bite taken out' },
+      ]);
+    });
+
+    it('should warn about deprecation of summary_with_large_image', () => {
+      const config = {
+        card: 'summary_with_large_image',
+        site: '@Example',
+        title: 'Some title',
+        description: 'Some description',
+        image: {
+          src: 'http://example.com/ogp.jpg',
+          alt: 'A shiny red apple with a bite taken out',
+        },
+        irrelevantProperty: 'foo',
+      };
+
+      expect(getTwitterCardTags(config)).toEqual([
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@Example' },
+        { name: 'twitter:title', content: 'Some title' },
+        { name: 'twitter:description', content: 'Some description' },
+        { name: 'twitter:image', content: 'http://example.com/ogp.jpg' },
+        { name: 'twitter:image:alt', content: 'A shiny red apple with a bite taken out' },
+      ]);
+
+      expect(global.console.warn).toHaveBeenCalled();
     });
   });
 

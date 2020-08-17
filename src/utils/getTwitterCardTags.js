@@ -23,10 +23,22 @@ const schemas = {
   player: TWITTER_PLAYER_CARD_SCHEMA,
   app: TWITTER_APP_CARD_SCHEMA,
   summary: TWITTER_SUMMARY_CARD_SCHEMA,
-  summary_with_large_image: TWITTER_SUMMARY_CARD_SCHEMA,
+  summary_large_image: TWITTER_SUMMARY_CARD_SCHEMA,
 };
 
 const getTwitterCardTags = (tags) => {
+  if (tags.card === 'summary_with_large_image') {
+    // eslint-disable-next-line no-console
+    console.warn(
+      'summary_with_large_image is deprecated and will be removed in the next major release. Please use summary_large_image instead. See https://github.com/americanexpress/react-seo/issues/24 for more information'
+    );
+
+    return getTagsFromSchema(schemas.summary_large_image, {
+      ...tags,
+      card: 'summary_large_image',
+    });
+  }
+
   if (schemas[tags.card]) {
     return getTagsFromSchema(schemas[tags.card], tags);
   }
