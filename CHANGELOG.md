@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/americanexpress/react-seo/compare/v2.2.0...v2.2.1) (2020-08-21)
+
+
+### Bug Fixes
+
+* **getTwitterCardTags:** summary_large_image twitter card type ([1cb41fc](https://github.com/americanexpress/react-seo/commit/1cb41fc6327b8daf3981e82965266b19a04d1caa)), closes [#24](https://github.com/americanexpress/react-seo/issues/24)
+
 # [2.2.0](https://github.com/americanexpress/react-seo/compare/v2.1.0...v2.2.0) (2020-08-13)
 
 
