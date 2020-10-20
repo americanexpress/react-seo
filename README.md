@@ -100,6 +100,10 @@ const MyModule = () => (
           alt: 'Lorem ipsum',
         }
       }}
+      alternateLinks={[
+        { hreflang: 'en-CA', href: 'http://example.com/en-CA' },
+        { hreflang: 'fr-CA', href: 'http://example.com/fr-CA' },
+      ]}
     />
   </div>
 );
@@ -206,6 +210,10 @@ SEO.propTypes = {
   locale: string,
   meta: arrayOf(object),
   siteUrl: string,
+  alternateLinks: arrayOf(shape({
+    hreflang: string,
+    href: string,
+  }))
 };
 
 SEO.defaultProps = {
@@ -221,6 +229,7 @@ SEO.defaultProps = {
   siteUrl: '',
   title: '',
   canonical: '',
+  alternateLinks: [],
 };
 ```
 

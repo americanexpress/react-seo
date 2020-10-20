@@ -79,3 +79,8 @@ export const twitterCardShape = shape({
   app: twitterCardAppsShape,
   player: twitterCardPlayerShape,
 });
+
+export const alternateLinkShape = shape({
+  hreflang: string,
+  href: string,
+});
