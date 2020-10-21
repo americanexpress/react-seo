@@ -12,7 +12,12 @@
  * under the License.
  */
 
-export getAlternateLinks from './getAlternateLinks';
-export getOpenGraphTags from './getOpenGraphTags';
-export getTwitterCardTags from './getTwitterCardTags';
-export provideDefaults from './provideDefaults';
+function getAlternateLinks(alternateLinks) {
+  if (!alternateLinks || !Array.isArray(alternateLinks)) {
+    return [];
+  }
+
+  return alternateLinks.map((x) => ({ rel: 'alternate', ...x }));
+}
+
+export default getAlternateLinks;

@@ -201,6 +201,67 @@ exports[`SEO should render Twitter Card tags correctly 1`] = `
 </Helmet>
 `;
 
+exports[`SEO should render alternate links correctly 1`] = `
+<Helmet
+  htmlAttributes={
+    Object {
+      "lang": "en-US",
+    }
+  }
+  link={
+    Array [
+      Object {
+        "href": "https://example.com",
+        "rel": "canonical",
+      },
+      Object {
+        "href": "https://example.com/en-CA",
+        "hreflang": "en-CA",
+        "rel": "alternate",
+      },
+      Object {
+        "href": "https://example.com/fr-CA",
+        "hreflang": "fr-CA",
+        "rel": "alternate",
+      },
+    ]
+  }
+  meta={
+    Array [
+      Object {
+        "content": "Lorem Ipsum",
+        "property": "og:title",
+      },
+      Object {
+        "content": "https://example.com",
+        "property": "og:url",
+      },
+      Object {
+        "content": "website",
+        "property": "og:type",
+      },
+      Object {
+        "content": "en-US",
+        "property": "og:locale",
+      },
+      Object {
+        "content": "summary",
+        "name": "twitter:card",
+      },
+      Object {
+        "content": "Lorem Ipsum",
+        "name": "twitter:title",
+      },
+    ]
+  }
+  titleTemplate=""
+>
+  <title>
+    Lorem Ipsum
+  </title>
+</Helmet>
+`;
+
 exports[`SEO should render correctly with the minimal tags 1`] = `
 <Helmet
   htmlAttributes={

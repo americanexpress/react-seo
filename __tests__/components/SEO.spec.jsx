@@ -157,4 +157,18 @@ describe('SEO', () => {
     );
     expect(component).toMatchSnapshot();
   });
+
+  it('should render alternate links correctly', () => {
+    const component = shallow(
+      <SEO
+        title="Lorem Ipsum"
+        siteUrl="https://example.com"
+        alternateLinks={[
+          { hreflang: 'en-CA', href: 'https://example.com/en-CA' },
+          { hreflang: 'fr-CA', href: 'https://example.com/fr-CA' },
+        ]}
+      />
+    );
+    expect(component).toMatchSnapshot();
+  });
 });

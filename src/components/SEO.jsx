@@ -15,8 +15,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { getOpenGraphTags, getTwitterCardTags, provideDefaults } from '../utils';
-import { openGraphShape, twitterCardShape } from '../shapes';
+import { getAlternateLinks, getOpenGraphTags, getTwitterCardTags, provideDefaults } from '../utils';
+import { alternateLinkShape, openGraphShape, twitterCardShape } from '../shapes';
 
 const SEO = ({
   siteUrl,
@@ -31,10 +31,14 @@ const SEO = ({
   twitterCard,
   image,
   video,
+  alternateLinks,
 }) => {
   const canonicalUrl = canonical || siteUrl;
 
-  const link = [{ rel: 'canonical', href: canonicalUrl }];
+  const link = [
+    { rel: 'canonical', href: canonicalUrl },
+    ...getAlternateLinks(alternateLinks),
+  ];
 
   const openGraphConfig = provideDefaults(openGraph, {
     title,
@@ -112,6 +116,7 @@ SEO.propTypes = {
     height: PropTypes.number,
     alt: PropTypes.string,
   }),
+  alternateLinks: PropTypes.arrayOf(alternateLinkShape),
 };
 
 SEO.defaultProps = {
@@ -125,6 +130,7 @@ SEO.defaultProps = {
   video: undefined,
   openGraph: undefined,
   twitterCard: undefined,
+  alternateLinks: [],
 };
 
 export default SEO;
