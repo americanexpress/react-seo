@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/americanexpress/react-seo/compare/v2.2.1...v2.3.0) (2020-10-21)
+
+
+### Features
+
+* **seo:** add support for alternate links ([#26](https://github.com/americanexpress/react-seo/issues/26)) ([af7b5a3](https://github.com/americanexpress/react-seo/commit/af7b5a397f0629da424185ca0764017f0e2e1af7))
+
 ## [2.2.1](https://github.com/americanexpress/react-seo/compare/v2.2.0...v2.2.1) (2020-08-21)
 
 
