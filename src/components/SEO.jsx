@@ -15,10 +15,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { getAlternateLinks, getOpenGraphTags, getTwitterCardTags, provideDefaults } from '../utils';
+import {
+  getAlternateLinks,
+  getOpenGraphTags,
+  getTwitterCardTags,
+  provideDefaults,
+} from '../utils';
 import { alternateLinkShape, openGraphShape, twitterCardShape } from '../shapes';
 
 const SEO = ({
+  children,
   siteUrl,
   title,
   description,
@@ -85,11 +91,16 @@ const SEO = ({
       meta={meta}
     >
       {title && <title>{title}</title>}
+      {children}
     </Helmet>
   );
 };
 
 SEO.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   siteUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
@@ -120,6 +131,7 @@ SEO.propTypes = {
 };
 
 SEO.defaultProps = {
+  children: null,
   description: '',
   locale: 'en-US',
   titleTemplate: '',
