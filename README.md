@@ -1,9 +1,9 @@
 <h1 align="center">
-  <img src='https://github.com/americanexpress/react-seo/raw/master/react-seo.png' alt="React SEO" width='50%'/>
+  <img src='https://github.com/americanexpress/react-seo/raw/main/react-seo.png' alt="React SEO" width='50%'/>
 </h1>
 
 [![npm version](https://badge.fury.io/js/%40americanexpress%2Freact-seo.svg)](https://badge.fury.io/js/%40americanexpress%2Freact-seo)
-[![Build Status](https://travis-ci.org/americanexpress/react-seo.svg?branch=master)](https://travis-ci.org/americanexpress/react-seo)
+[![Build Status](https://travis-ci.org/americanexpress/react-seo.svg?branch=main)](https://travis-ci.org/americanexpress/react-seo)
 
 > Simple SEO tag manager for React
 
@@ -250,7 +250,7 @@ Please feel free to open pull requests and see [CONTRIBUTING.md](./CONTRIBUTING.
 ## 🗝️ License
 
 Any contributions made under this project will be governed by the [Apache License
-2.0](https://github.com/americanexpress/react-seo/blob/master/LICENSE.txt).
+2.0](https://github.com/americanexpress/react-seo/blob/main/LICENSE.txt).
 
 ## 🗣️ Code of Conduct
 
