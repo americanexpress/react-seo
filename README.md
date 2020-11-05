@@ -119,6 +119,10 @@ The interface for `react-seo` is denoted below:
 
 ```javascript
 SEO.propTypes = {
+  children: oneOfType([
+    arrayOf(node),
+    node,
+  ]),
   title: string,
   description: string,
   canonical: string,
@@ -217,6 +221,7 @@ SEO.propTypes = {
 };
 
 SEO.defaultProps = {
+  children: null,
   article: false,
   author: '',
   description: '',
