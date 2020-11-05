@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/americanexpress/react-seo/compare/v2.3.0...v2.4.0) (2020-11-05)
+
+
+### Features
+
+* **proptypes:** allow children as prop ([#29](https://github.com/americanexpress/react-seo/issues/29)) ([9c7a57b](https://github.com/americanexpress/react-seo/commit/9c7a57b35f4cc85ad3c152a75db9fede171f64b3))
+
 # [2.3.0](https://github.com/americanexpress/react-seo/compare/v2.2.1...v2.3.0) (2020-10-21)
 
 
