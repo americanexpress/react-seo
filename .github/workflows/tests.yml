@@ -1,0 +1,30 @@
+name: Tests
+on:
+  pull_request:
+    branches:
+      - main
+      - support/**
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '10.x', '12.x' ]
+    name: Node ${{ matrix.node }}
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        git remote set-branches --add origin main
+        git fetch
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+    - name: Install Dependencies
+      run: npm ci
+      env:
+        NODE_ENV: development
+    - name: Unit Tests
+      run: npm run test
+      env:
+        NODE_ENV: production

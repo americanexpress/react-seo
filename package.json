@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "lint": "eslint ./ --ignore-path .gitignore --ext .js",
-    "test": "jest --ci=false",
+    "test": "jest",
     "test:lockfile": "lockfile-lint -p package-lock.json -t npm -a npm -o https: -c -i",
     "test:git-history": "commitlint --from origin/main --to HEAD",
     "build": "babel src --out-dir build",
