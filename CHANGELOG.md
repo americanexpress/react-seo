@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/americanexpress/react-seo/compare/v1.4.0...v1.4.1) (2021-01-06)
+
+
+### Bug Fixes
+
+* **release:** force unreleased changes ([51c3663](https://github.com/americanexpress/react-seo/commit/51c36632b3b84c95983a16c3ea36f0c7ae19923d))
+
 # [1.4.0](https://github.com/americanexpress/react-seo/compare/v1.3.0...v1.4.0) (2020-05-27)
 
 
