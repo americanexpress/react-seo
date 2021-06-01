@@ -26,6 +26,7 @@ const SEO = ({
   titleTemplate,
   canonical,
   keywords,
+  robots,
   openGraph,
   twitterCard,
   image,
@@ -66,6 +67,10 @@ const SEO = ({
     meta.push({ name: 'keywords', content: keywords.join(',') });
   }
 
+  if (robots.length > 0) {
+    meta.push({ name: 'robots', content: robots.join(',') });
+  }
+
   return (
     <Helmet
       htmlAttributes={{
@@ -90,6 +95,7 @@ SEO.propTypes = {
   openGraph: openGraphShape,
   twitterCard: twitterCardShape,
   keywords: PropTypes.arrayOf(PropTypes.string),
+  robots: PropTypes.arrayOf(PropTypes.string),
   image: PropTypes.shape({
     url: PropTypes.string,
     secureUrl: PropTypes.string,
@@ -114,6 +120,7 @@ SEO.defaultProps = {
   titleTemplate: '',
   canonical: '',
   keywords: [],
+  robots: [],
   image: undefined,
   video: undefined,
   openGraph: undefined,
