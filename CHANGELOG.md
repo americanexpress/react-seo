@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/americanexpress/react-seo/compare/v1.4.1...v1.4.2) (2021-06-02)
+
+
+### Bug Fixes
+
+* **robots:** missing robots meta tag ([#48](https://github.com/americanexpress/react-seo/issues/48)) ([30a0494](https://github.com/americanexpress/react-seo/commit/30a0494e0f3ea85454165a4b16f30eb810a5741d))
+
 ## [1.4.1](https://github.com/americanexpress/react-seo/compare/v1.4.0...v1.4.1) (2021-01-06)
 
 
