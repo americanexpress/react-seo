@@ -1,14 +1,16 @@
-name: Health Check
+name: Tests
+
 on:
-  schedule:
-    # At minute 0 past hour 0800 and 2000.
-    - cron:  '0 8,20 * * *'
+  pull_request:
+    branches:
+      - main
+
 jobs:
   tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '12.x', '14.x', '16.x' ]
+        node: [ '12.x', '14.x', '16.x']
     name: Node ${{ matrix.node }}
     steps:
     - uses: actions/checkout@v2
@@ -23,8 +25,19 @@ jobs:
       run: npm ci
       env:
         NODE_ENV: development
-    - name: Run Test Script
+    - name: Unit Tests
       run: npm run test
       env:
         NODE_ENV: production
-        GITHUB_TOKEN: ${{ secrets.PA_TOKEN }}
+    - name: Git History Test
+      run: npm run test:git-history
+      env:
+        NODE_ENV: production
+    - name: Lockfile Lint Test
+      run: npm run test:lockfile
+      env:
+        NODE_ENV: production
+    - name: Lint
+      run: npm run lint
+      env:
+        NODE_ENV: production
